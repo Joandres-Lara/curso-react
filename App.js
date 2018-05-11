@@ -31,6 +31,8 @@ injectGlobal`
  
  .container-fluid{
   max-width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
  }
 `
 /*
@@ -52,7 +54,7 @@ export default class App extends React.Component{
   super(props)
   this.state = {
    seccionTarget: 0,
-   prevStatesComponents: null
+   prevStatesComponents: {}
   }
  }
  
@@ -75,18 +77,20 @@ export default class App extends React.Component{
   const index = this.state.seccionTarget
   const currentLabel = navItems[index]
   const TargetComponent = Components[currentLabel]
-  const prevStateSave = this.prevStatesComponents[currentLabel]
+  const prevStateSave = currentLabel in this.state.prevStatesComponents ? (
+   this.state.prevStatesComponents[currentLabel]
+  ) : ({}) 
   
   return(
-   <div id='app'>
-    <div className='col-2'>
+   <div id='app' className='row'>
+    <div className='col-1'>
      <Nav 
-      items={itemsNav} 
+      items={navItems} 
       handleActiveItem={this.selectComponent.bind(this)}
       itemActive={index}/>
     </div>
-    <div className='col-8'>
-     <TargetComponent handleState={this.savePrevState}/>
+    <div className='col-9'>
+     <TargetComponent handleState={this.savePrevState.bind(this)}/>
     </div>
    </div>
   )

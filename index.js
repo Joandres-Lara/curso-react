@@ -11,7 +11,7 @@ const app = express()
 * Agregar middlewares para body-parser y 
 * query-string
 */
-express.use(
+app.use(
  //Aplicaciones con header xml-urlencoded-
  bodyParser.urlencoded({extended: true}),
  //Convertir parametros en JSON
@@ -19,7 +19,7 @@ express.use(
  //Imágenes
  upload.array()
 )
-
-express.use(express.static(`${__dirname}/public`))
+app.use(express.static(`${__dirname}/public`))
+app.use(entrypoint)
 
 createServer(app).listen(3000)

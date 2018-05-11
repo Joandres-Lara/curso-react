@@ -10,8 +10,11 @@ const StyledNav = styled.ul`
 
 const ItemNav = styled.li`
  float: left;
+ width: 100%;
+ max-width: 100%;
  padding: 5px 25px;
  border-bottom: 1px solid rgba(0,0,0,.1);
+ cursor: pointer;
  
  &:hover,
  &:active{
@@ -30,7 +33,7 @@ export default class Nav extends React.Component{
  //Prop types
  static get propTypes(){
   return {
-   handleActiveItem: PropTypes.function
+   handleActiveItem: PropTypes.func
   }
  }
  
