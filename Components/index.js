@@ -1,9 +1,7 @@
-import Productos from './Products'
-import Clientes from './Clients'
-import Ventas from './Sales'
+import Productos from 'Containers/Products'
+import Clientes from 'Containers/Clients'
 
 export default {
  Productos,
- Clientes,
- Ventas
+ Clientes
 }

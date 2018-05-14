@@ -26,6 +26,7 @@ function entrypoint(request, response, next){
    </body>
   </html>
  `)
+ next()
 }
 
 export default entrypoint

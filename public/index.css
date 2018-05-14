@@ -1,32 +1,38 @@
-.row:before, .row:after{
- content: ' ';
- display: table;
+*{
+ box-sizing: border-box;
+ -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ padding: 0;
+ margin: 0;
 }
 
-.row:after{
- content: ' ';
- display: table;
+html{
+ font-family: sans-serif, Helvetica, Arial;
+ color: #333;
+ font-size: 0.9em;
 }
-.col-1,.col-2, .col-3,.col-4, .col-5,.col-6, .col-7,.col-8, .col-9,.col-10{
+
+.container-fluid{
+ max-width: 100%;
+ padding-left: 15px;
+ padding-right: 15px;
+}
+
+.col-1,
+.col-2, 
+.col-3,
+.col-4, 
+.col-5,
+.col-6, 
+.col-7,
+.col-8, 
+.col-9,
+.col-10{
  float: left;
 }
 
-.col-1{
- width: 10%;
-}
-
-.col-2{
- width: 20%;
-}
-
-.col-8{
- width: 80%;
-}
-
-.col-9{
- width: 90%;
-}
-
-.col-10{
- width: 100%;
-}
+.col-1{ width: 10% }
+.col-2{ width: 20% }
+.col-8{ width: 80% }
+.col-9{ width: 90% }
+.col-10{ width: 100% }
