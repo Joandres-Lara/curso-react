@@ -7,7 +7,7 @@ const CurrentComponent = ({label}) => (
 )
 
 const mapStateToProps = ({config}) => ({
-	label: config.itemsNav[ config.seccionTarget ]
+ label: config.itemsNav[ config.seccionTarget ]
 })
 
 
