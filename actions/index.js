@@ -12,10 +12,10 @@ export function selectComponentNavbar(index){
 }
 
 export function saveState(state){
-	return {
-	 type: SAVE_LAST_STATE,
-	 state
-	}
+ return {
+  type: SAVE_LAST_STATE,
+  state
+ }
 }
 
 /*--------------------------
@@ -24,54 +24,50 @@ export function saveState(state){
 export const URL_GET_CLIENTS = '/api/get/Clientes'
 
 function invalidClients(error){
-	return {
-		type: FETCH,
-		status: 'error',
-		url: URL_GET_CLIENTS
-	}
+ return {
+  type: FETCH,
+  status: 'error',
+  url: URL_GET_CLIENTS
+ }
 }
 
 function requestClients(){
-	return {
-		type: FETCH,
-		status: 'init',
-		url: URL_GET_CLIENTS
-	}
+ return {
+  type: FETCH,
+  status: 'init',
+  url: URL_GET_CLIENTS
+ }
 }
 
 function sucessClients(response){
-	return {
-		type: FETCH,
-		status: 'success',
-		url: URL_GET_CLIENTS,
-		response
-	}
+ return {
+  type: FETCH,
+  status: 'success',
+  url: URL_GET_CLIENTS,
+  response
+ }
 }
 
 function completeClients(json){
-	return {
-		type: FETCH,
-		status: 'complete',
-		url: URL_GET_CLIENTS,
-		json
-	}
+ return {
+  type: FETCH,
+  status: 'complete',
+  url: URL_GET_CLIENTS,
+  json
+ }
 }
 
 export function getClients(){
-	return dispatch => {
-		dispatch( requestClients() )
-		
-		return fetch(URL_GET_CLIENTS)
-		 .then( response => {
-		 	if(response.status >= 400){
-		 		dispatch( invalidClients('Invalid response') )
-		 		return false
-		 	}
-
-		 	dispatch( sucessClients(response) )
-		 	return response.json()
-		 })
-		  .then( json => dispatch( completeClients(json) ))
-
-	}
+ return dispatch => {
+  dispatch( requestClients() )
+  return fetch(URL_GET_CLIENTS)
+   .then( response => {
+    if(response.status >= 400){
+     dispatch( invalidClients('Invalid response') )
+      return false
+    }
+    dispatch( sucessClients(response) )
+    return response.json()
+   }).then( json => dispatch( completeClients(json) ))
+ }
 }
