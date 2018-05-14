@@ -16,25 +16,18 @@ const defaultState = {
 }
 
 const config = (state = defaultState, action ) => {
-	switch(action.type){
-		case SELECT_COMPONENT_NAVBAR:
-		 return Object.assign({}, state, { seccionTarget: action.index })
-		case FETCH:
-		 const lastFetch = { status: action.status }
-		 switch(action.status){
-		 	case 'init':
-		 	 lastFetch.url = action.url
-		 	case 'success': 
-		 	 lastFetch.response = action.response
-		 	case 'complete':
-		 	 lastFetch.json = action.json
-		 	case 'error':
-		 	 lastFetch.error = action.error
-		 }
-		 return Object.assign({}, state, { lastFetch })
-		default:
-		 return state
-	}
+ switch(action.type){
+  case SELECT_COMPONENT_NAVBAR: return Object.assign({}, state, { seccionTarget: action.index })
+  case FETCH: const lastFetch = { status: action.status }
+   switch(action.status){
+    case 'init': lastFetch.url = action.url
+    case 'success': lastFetch.response = action.response
+    case 'complete': lastFetch.json = action.json
+    case 'error': lastFetch.error = action.error
+   }
+  return Object.assign({}, state, { lastFetch })
+  default: return state
+ }
 }
 
 export default combineReducers({config, clients, products})
