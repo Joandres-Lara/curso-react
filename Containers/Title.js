@@ -7,7 +7,7 @@ const Title = ({label}) => (<h1>{label}</h1>)
 * config : { currentIndex, itemsNav, ... } 
 */
 const mapStateToProps = ({config}) => ({
-	label: config.itemsNav[ config.seccionTarget ]
+ label: config.itemsNav[ config.seccionTarget ]
 })
 
 export default connect(mapStateToProps)(Title)
